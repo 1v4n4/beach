@@ -8,12 +8,12 @@ const BeachList = () => {
   const list = useSelector((state) => state.list);
   console.log('list', list);
 
-  const FetchIng = () => {
+  const FetchBeach = () => {
     dispatch(getList());
   };
 
   useEffect(() => {
-    FetchIng();
+    FetchBeach();
   }, []);
 
   const showData = () => {
@@ -26,7 +26,7 @@ const BeachList = () => {
         <div className="ing-btn-div">
           {list.data.map((beach) => (
             <div className="beach-card" key={beach.id}>
-              <Link to={`/beach/${beach.id}`}><h2>{beach.name}</h2></Link>
+              <Link to={{ pathname: `/beach/${beach.id}`, state: { beachid: `${beach.id}` } }}><h2>{beach.name}</h2></Link>
               <h4>{beach.location}</h4>
             </div>
           ))}
