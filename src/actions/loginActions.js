@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { setUser } from '../localStorage';
 
 const LOGIN_LOADING = 'LOGIN LOADING';
@@ -18,10 +18,7 @@ const getLogin = (email, password) => async (dispatch) => {
       {
         withCredentials: true,
       });
-    console.log(result);
     setUser(result.data.user);
-    const history = useHistory();
-    history.push('/');
     dispatch({
       type: LOGIN_SUCCESS,
       payload: result.data,

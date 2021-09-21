@@ -11,10 +11,10 @@ const getList = () => async (dispatch) => {
       type: LIST_LOADING,
     });
     const result = await axios.get('https://obscure-ravine-72601.herokuapp.com/beaches');
-    console.log('beach list', result.data.beaches);
+    console.log('beach list', result.data);
     dispatch({
       type: LIST_SUCCESS,
-      payload: result.data.beaches,
+      payload: result.data,
     });
   } catch (error) {
     dispatch({

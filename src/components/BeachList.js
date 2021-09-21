@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getList } from '../actions/listActions';
+import Filter from './Filter';
 
 const BeachList = () => {
+  const [filter, setFilter] = useState('All');
   const dispatch = useDispatch();
-  const list = useSelector((state) => state.list);
-  console.log('list', list);
 
+  const list = useSelector((state) => state.list);
+
+  console.log('list', list);
   const FetchBeach = () => {
     dispatch(getList());
   };
@@ -22,9 +25,13 @@ const BeachList = () => {
     }
 
     if (list.data && list.data.length > 0) {
+      let beaches = [];
+      if (filter === 'All' || filter === 'COUNTIES') { beaches = list.data; } else {
+        beaches = list.data.filter((beach) => beach.county === filter);
+      }
       return (
         <div className="ing-btn-div">
-          {list.data.map((beach) => (
+          {beaches.map((beach) => (
             <div className="beach-card" key={beach.id}>
               <Link to={{ pathname: `/beach/${beach.id}`, state: { beachid: `${beach.id}` } }}><h2>{beach.name}</h2></Link>
               <h4>{beach.location}</h4>
@@ -41,7 +48,10 @@ const BeachList = () => {
   };
 
   return (
-    <div>{showData()}</div>
+    <div>
+      <Filter filter={filter} setFilter={setFilter} />
+      {showData()}
+    </div>
   );
 };
 

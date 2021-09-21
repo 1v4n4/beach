@@ -1,4 +1,10 @@
+import axios from 'axios';
 import { getUser } from './localStorage';
+
+const postFav = async (url, data) => {
+  const result = await axios.post(url, data);
+  return result.data;
+};
 
 const msgs = (msg) => {
   const msgDiv = document.getElementById('forAlert');
@@ -15,4 +21,4 @@ const logged = () => {
 };
 
 export
-{ msgs, logged };
+{ msgs, logged, postFav };

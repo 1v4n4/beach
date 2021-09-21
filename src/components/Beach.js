@@ -1,14 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import postFav from '../api';
+import { postFav } from '../helper';
+
+import { getBeach } from '../actions/beachActions';
+import { getUser } from '../localStorage';
 import { checkUser } from '../actions/userActions';
 
 const Beach = () => {
-  const user = useSelector((state) => state.user);
   const location = useLocation();
   const dispatch = useDispatch();
   const { beachid } = location.state;
+  const logged = useSelector((state) => state.user.logged);
+
+  const FetchBeach = () => {
+    dispatch(getBeach());
+  };
+
+  useEffect(() => {
+    FetchBeach();
+  }, []);
+  const FetchUser = () => {
+    const result = getUser() || {};
+    if (result.id) {
+      dispatch(checkUser(result));
+    }
+  };
+
+  useEffect(() => {
+    FetchUser();
+  }, []);
+
+  const user = useSelector((state) => state.user);
   const userid = user.data.id;
 
   const handleClick = () => {
@@ -24,7 +47,8 @@ const Beach = () => {
   return (
     <div>
       <p>Beach</p>
-      <button type="button" onClick={handleClick}>Fav</button>
+      { logged
+      && <button type="button" onClick={handleClick}>Fav</button>}
     </div>
   );
 };

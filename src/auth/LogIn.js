@@ -10,6 +10,7 @@ const LogIn = () => {
 
   const handleSubmit = (event) => {
     console.log('onsubmit');
+    console.log(email, password);
     dispatch(getLogin(email, password));
     event.preventDefault();
   };
