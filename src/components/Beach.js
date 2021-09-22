@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { postFav } from '../helper';
-
 import { getBeach } from '../actions/beachActions';
-import { getUser } from '../localStorage';
-import { checkUser } from '../actions/userActions';
+import Favs from './Favs';
 
 const Beach = () => {
   const location = useLocation();
@@ -14,41 +11,18 @@ const Beach = () => {
   const logged = useSelector((state) => state.user.logged);
 
   const FetchBeach = () => {
-    dispatch(getBeach());
+    dispatch(getBeach(beachid));
   };
 
   useEffect(() => {
     FetchBeach();
   }, []);
-  const FetchUser = () => {
-    const result = getUser() || {};
-    if (result.id) {
-      dispatch(checkUser(result));
-    }
-  };
-
-  useEffect(() => {
-    FetchUser();
-  }, []);
-
-  const user = useSelector((state) => state.user);
-  const userid = user.data.id;
-
-  const handleClick = () => {
-    const url = 'https://obscure-ravine-72601.herokuapp.com/favs';
-    const data = { user_id: userid, beach_id: beachid };
-    const fav = postFav(url, data);
-    console.log('fav', fav);
-    if (fav.id) {
-      dispatch(checkUser);
-    }
-  };
 
   return (
     <div>
-      <p>Beach</p>
+      <p>{beachid}</p>
       { logged
-      && <button type="button" onClick={handleClick}>Fav</button>}
+      && <Favs beachid={beachid} />}
     </div>
   );
 };

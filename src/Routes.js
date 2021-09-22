@@ -8,6 +8,7 @@ import SignUp from './auth/SignUp';
 import Header from './components/Header';
 import { getUser } from './localStorage';
 import { checkUser } from './actions/userActions';
+import { getFavs } from './actions/favsActions';
 
 const Routes = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,8 @@ const Routes = () => {
     const result = getUser() || {};
     if (result.id) {
       dispatch(checkUser(result));
+      const userid = result.id;
+      dispatch(getFavs(userid));
     }
   };
 
