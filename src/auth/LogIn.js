@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+// import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { getLogin } from '../actions/loginActions';
 
 const LogIn = () => {
@@ -7,11 +9,14 @@ const LogIn = () => {
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   // const user = useSelector((state) => state.user);
+  const history = useHistory();
 
   const handleSubmit = (event) => {
     console.log('onsubmit');
     console.log(email, password);
     dispatch(getLogin(email, password));
+    history.push('/');
+    // <Redirect push to="/" />;
     event.preventDefault();
   };
 

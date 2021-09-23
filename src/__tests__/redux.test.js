@@ -28,7 +28,6 @@ describe('userReducer', () => {
 describe('userReducer, checkUser', () => {
   it('updates the list of users', () => {
     expect(userReducer({}, checkUser(['Results']))).toBeInstanceOf(Object);
-
   });
 
   it('updates the list of users', () => {
@@ -40,7 +39,6 @@ describe('userReducer, checkUser', () => {
 describe('userReducer, getLogin', () => {
   it('updates the list of users', () => {
     expect(userReducer({}, getLogin(['Results']))).toBeInstanceOf(Object);
-
   });
 
   it('updates the list of users', () => {
@@ -52,7 +50,6 @@ describe('userReducer, getLogin', () => {
 describe('userReducer, logoutUser', () => {
   it('updates the list of users', () => {
     expect(userReducer({}, logoutUser(['Results']))).toBeInstanceOf(Object);
-
   });
 
   it('updates the list of users', () => {
@@ -60,7 +57,6 @@ describe('userReducer, logoutUser', () => {
     expect(object.data).not.toBe(null);
   });
 });
-
 
 describe('beachReducer', () => {
   it('returns the initial state', () => {

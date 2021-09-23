@@ -18,8 +18,10 @@ const beachReducer = (state = initialState, action) => {
       };
     case BEACH_SUCCESS:
       return {
-        ...state, loading: false,
-        data: action.payload, errorMSG: '',
+        ...state,
+        loading: false,
+        data: action.payload,
+        errorMSG: '',
       };
     default:
       return state;

@@ -21,6 +21,7 @@ const Favs = ({ beachid }) => {
       dispatch(deleteFav(id, userid, beachid));
     }
   };
+
   return (
     <div>
       <button type="button" onClick={handleClick}>Fav</button>

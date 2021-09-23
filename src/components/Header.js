@@ -10,10 +10,9 @@ import { checkUser } from '../actions/userActions';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
 
+  const result = getUser() || {};
   const FetchUser = () => {
-    const result = getUser() || {};
     if (result.id) {
       dispatch(checkUser(result));
     }
@@ -21,9 +20,10 @@ const Header = () => {
 
   useEffect(() => {
     FetchUser();
-  }, [user]);
-
+  }, []);
+  const user = useSelector((state) => state.user);
   const isLogged = user.logged;
+  const username = user.data.name || '';
 
   const handleClick = () => {
     setUser(null);
@@ -44,7 +44,7 @@ const Header = () => {
           && (
           <h2 className="nav-link">
             Loged in as:
-            {user.data.name}
+            {username}
           </h2>
           ) }
             { isLogged && <Button className="nav-link" onClick={handleClick}>Log Out</Button> }

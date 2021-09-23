@@ -5,7 +5,7 @@ import { USER_LOGEDOUT } from '../actions/logOutActions';
 
 const initialState = {
   loading: false,
-  data: null,
+  data: {},
   errorMSG: '',
   logged: false,
 };
