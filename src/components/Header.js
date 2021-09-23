@@ -10,6 +10,8 @@ import { checkUser } from '../actions/userActions';
 
 const Header = () => {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+
   const FetchUser = () => {
     const result = getUser() || {};
     if (result.id) {
@@ -19,9 +21,7 @@ const Header = () => {
 
   useEffect(() => {
     FetchUser();
-  }, []);
-
-  const user = useSelector((state) => state.user);
+  }, [user]);
 
   const isLogged = user.logged;
 

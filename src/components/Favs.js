@@ -17,7 +17,7 @@ const Favs = ({ beachid }) => {
     if (!array.length) {
       dispatch(postFav(userid, beachid));
     } else {
-      const { id } = favs.data.filter((fav) => fav.user_id === 1 && fav.beach_id === 1)[0];
+      const { id } = array[0];
       dispatch(deleteFav(id, userid, beachid));
     }
   };
