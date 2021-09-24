@@ -19,6 +19,7 @@ const getLogin = (email, password) => async (dispatch) => {
         withCredentials: true,
       });
     setUser(result.data.user);
+    console.log(result.data);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: result.data,

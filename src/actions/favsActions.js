@@ -8,11 +8,14 @@ const FAVS_FAIL = 'FAVS FAIL';
 const FAV_DELETE_SUCCESS = 'FAVS DELETE SUCCESS';
 const FAV_DELETE_FAIL = 'FAVS DELETE FAIL';
 
-const url = 'https://obscure-ravine-72601.herokuapp.com/favs';
+const url = 'https://obscure-ravine-72601.herokuapp.com/favs/';
 
 const postFav = (userid, beachid) => async (dispatch) => {
   try {
+    console.log(beachid);
+    console.log('in fav create', userid, beachid);
     const data = { user_id: userid, beach_id: beachid };
+    console.log('data', data);
     const result = await axios.post(url, data);
     console.log('fav', result);
     dispatch({ type: FAV_CREATE_SUCCESS, payload: result.data.fav });
@@ -24,8 +27,12 @@ const postFav = (userid, beachid) => async (dispatch) => {
 
 const deleteFav = (id, userid, beachid) => async (dispatch) => {
   try {
-    const data = { id, userid, beachid };
-    const result = await axios.delete(`https://obscure-ravine-72601.herokuapp.com/favs/${id}`);
+    console.log(id, userid, beachid);
+    /* eslint-disable */
+    const data = {id: id, user_id: userid, beach_id:beachid};
+    console.log('dataa', data);
+    const url = 'https://obscure-ravine-72601.herokuapp.com/favs/' + id;
+    const result = await axios.delete(url);
     console.log('deletefav', result);
     dispatch({ type: FAV_DELETE_SUCCESS, payload: data });
   } catch (err) {

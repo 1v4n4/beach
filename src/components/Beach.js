@@ -11,6 +11,7 @@ const Beach = () => {
   const logged = useSelector((state) => state.user.logged);
 
   const FetchBeach = () => {
+    console.log('inb', beachid);
     dispatch(getBeach(beachid));
   };
 

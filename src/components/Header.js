@@ -7,11 +7,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setUser, getUser } from '../localStorage';
 import { logoutUser } from '../actions/logOutActions';
 import { checkUser } from '../actions/userActions';
+import Logged from './Logged';
 
 const Header = () => {
   const dispatch = useDispatch();
 
   const result = getUser() || {};
+  const { id } = result;
   const FetchUser = () => {
     if (result.id) {
       dispatch(checkUser(result));
@@ -23,7 +25,6 @@ const Header = () => {
   }, []);
   const user = useSelector((state) => state.user);
   const isLogged = user.logged;
-  const username = user.data.name || '';
 
   const handleClick = () => {
     setUser(null);
@@ -41,12 +42,7 @@ const Header = () => {
           && <Link className="nav-link" to="/login">Log In</Link> }
             { !isLogged && <Link className="nav-link" to="/signup">Sign Up</Link> }
             { isLogged
-          && (
-          <h2 className="nav-link">
-            Loged in as:
-            {username}
-          </h2>
-          ) }
+          && <Logged id={id} /> }
             { isLogged && <Button className="nav-link" onClick={handleClick}>Log Out</Button> }
 
           </Nav>
