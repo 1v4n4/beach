@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { getLogin } from '../actions/loginActions';
 
@@ -8,7 +7,6 @@ const LogIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  // const user = useSelector((state) => state.user);
   const history = useHistory();
 
   const handleSubmit = (event) => {
@@ -16,7 +14,6 @@ const LogIn = () => {
     console.log(email, password);
     dispatch(getLogin(email, password));
     history.push('/');
-    // <Redirect push to="/" />;
     event.preventDefault();
   };
 

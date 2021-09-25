@@ -1,5 +1,3 @@
-import { getUser } from './localStorage';
-
 const msgs = (msg) => {
   const msgDiv = document.getElementById('forAlert');
   msgDiv.innerHTML = `<p className="msgs">${msg}</p>`;
@@ -8,11 +6,6 @@ const msgs = (msg) => {
   }, 1000);
 };
 
-const logged = () => {
-  const result = getUser();
-  if (result) return true;
-  return false;
-};
 const setFavState = (favs, userid, beachid) => {
   const array = favs
     .filter((fav) => fav.user_id === userid && fav.beach_id === beachid);
@@ -33,5 +26,5 @@ const toggleFav = (favState) => {
 
 export
 {
-  msgs, logged, toggleFav, setFavState,
+  msgs, toggleFav, setFavState,
 };

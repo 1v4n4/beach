@@ -1,0 +1,11 @@
+.filter-div {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.filter {
+  text-indent: 1px;
+  text-overflow: '';
+  border: none;
+}
