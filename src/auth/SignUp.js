@@ -30,13 +30,11 @@ const SignUp = () => {
   return (
     <div>
       <div id="forAlert" className="alert" />
-      <form className="sign-up-form">
-        <p>{name}</p>
-        <p>{email}</p>
-        <p>{password}</p>
-        <p>{passwordConfirmation}</p>
-        <div id="forAlert" />
+      <div />
+      <form className="d-flex flex-column mt-5">
+
         <input
+          className="mx-auto mb-3 ps-2"
           type="text"
           value={name}
           name="sign-up-name"
@@ -44,6 +42,7 @@ const SignUp = () => {
           onChange={(e) => setName(e.target.value)}
         />
         <input
+          className="mx-auto mb-3 ps-2"
           type="email"
           value={email}
           name="sign-up-mail"
@@ -51,6 +50,7 @@ const SignUp = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          className="mx-auto mb-3 ps-2"
           type="password"
           value={password}
           name="sign-up-mail"
@@ -58,13 +58,14 @@ const SignUp = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <input
+          className="mx-auto mb-3 ps-2"
           type="password"
           value={passwordConfirmation}
           name="sign-up-mail"
           placeholder="Confirm password"
           onChange={(e) => setPasswordConfirmation(e.target.value)}
         />
-        <button type="button" onClick={handleClick}> Submit </button>
+        <button type="button" className="mx-auto btn-secondary sub-btn" onClick={handleClick}> Submit </button>
 
       </form>
     </div>

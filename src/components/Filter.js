@@ -6,7 +6,7 @@ const counties = ['All', 'Humboldt', 'Mendocino',
   'Sonoma', 'Marin', 'San Francisco', 'San Mateo', 'Santa Cruz', 'Monterey', 'San Luis Obispo', 'Santa Barbara', 'Ventura', 'Los Angeles', 'Orange', 'San Diego'];
 
 const Filter = ({ setFilter }) => (
-  <div className="filter-div">
+  <div className="filter-div mb-2">
     <select className="filter text-center" onChange={(e) => setFilter(e.target.value)}>
       <option className="text-center" label="CHOOSE COUNTY">CHOOSE COUNTY</option>
       {counties.map((county) => <option className="foptions" value={county} key={county}>{county}</option>)}

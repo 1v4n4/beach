@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteFav, getFavs } from '../actions/favsActions';
-// import { toggleFav } from '../helper';
 
 const DelFav = ({ id, userid, beachid }) => {
   const dispatch = useDispatch();

@@ -5,8 +5,6 @@ import { postFav } from '../actions/favsActions';
 import { toggleFav } from '../helper';
 
 const MkFav = ({ userid, beachid }) => {
-  console.log('in mk', userid, beachid);
-
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(postFav(userid, beachid));

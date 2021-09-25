@@ -1,1 +1,14 @@
+.down {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  color: rgb(124, 121, 121);
+}
 
+.down-link {
+  color: rgb(124, 121, 121);
+}
+
+down-link:hover {
+  color: #333;
+}

@@ -1,6 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital@1&display=swap');
+
 body {
   margin: 0;
   font-family: 'Cabin', sans-serif;
@@ -18,8 +19,14 @@ a {
   color: black;
 }
 
-a {
-
+a:hover {
+color:#292b2c;
 }
 
-/* color: #292b2c; */
+input {
+  width: 70%;
+}
+
+.sub-btn {
+  width: 60%;
+}

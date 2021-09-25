@@ -19,24 +19,25 @@ const LogIn = () => {
 
   return (
     <div>
-      <form className="login-form">
-        <p>{email}</p>
+      <form className="d-flex flex-column mt-5">
         <input
+          className="mx-auto my-3 ps-2"
           type="email"
           value={email}
           name="log-in-mail"
           placeholder="Enter email"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <p>{password}</p>
         <input
+          className="mx-auto mb-3 ps-2"
           type="password"
           value={password}
           name="log-in-mail"
           placeholder="Enter password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit" onClick={handleSubmit}> Submit </button>
+        <br />
+        <button type="submit" className="mx-auto btn-secondary sub-btn" onClick={handleSubmit}> Submit </button>
       </form>
     </div>
   );

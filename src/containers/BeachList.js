@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 import { getList } from '../actions/listActions';
-import Filter from './Filter';
+import Filter from '../components/Filter';
 import '../CSS/beachList.css';
 
 const BeachList = () => {
@@ -23,7 +23,7 @@ const BeachList = () => {
 
   const showData = () => {
     if (list.loading) {
-      return <h1 style={{ marginTop: '25vh' }}>Loading</h1>;
+      return <h1 className="nav-link bg-light text-center text-dark mt-5">Loading</h1>;
     }
 
     if (list.data && list.data.length > 0) {
@@ -37,40 +37,31 @@ const BeachList = () => {
             {beaches.map((beach, index) => (
               <Carousel.Item key={beach.id}>
                 <img
-                  className="d-block w-100"
+                  className="d-block w-100 carusel-photo"
                   src={beach.photo1}
                   alt={beach.name}
                 />
                 <Carousel.Caption>
-                  <Link className="decoration-none" to={{ pathname: `/beach/${beach.id}`, state: { beachid: `${beach.id}` } }}><h5>{beach.name}</h5></Link>
-                  <p>{beach.description}</p>
+                  <Link to={{ pathname: `/beach/${beach.id}`, state: { beachid: `${beach.id}` } }}><h2>{beach.name}</h2></Link>
+                  <p className="fs-5">{beach.description}</p>
+                  <p className="fs-4">
+                    {index + 1}
+                    /
+                    {' '}
+                    {beaches.length}
+                  </p>
 
                 </Carousel.Caption>
-                {' '}
-                <p>
-                  {index + 1}
-                  /
-                  {' '}
-                  {beaches.length}
-                </p>
+
               </Carousel.Item>
+
             ))}
           </Carousel>
         </div>
       );
-
-      //       <div className="beach-card" key={beach.id}>
-      //         <Link to={{ pathname: `/beach/${beach.id}`,
-      // state: { beachid: `${beach.id}` } }}><h2>{beach.name}</h2></Link>
-      //         <h4>{beach.location}</h4>
-      //       </div>
-      //     ))}
-      //   </div>
-
-      // );
     }
     if (list.errorMSG !== '') {
-      return <h1>{list.errorMSG}</h1>;
+      return <h1 className="nav-link bg-light text-center text-dark mt-5">{list.errorMSG}</h1>;
     }
     return <p />;
   };
