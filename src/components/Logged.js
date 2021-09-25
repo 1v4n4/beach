@@ -5,7 +5,7 @@ const Logged = () => {
   const user = getUser();
 
   return (
-    <h2 className="nav-link">
+    <h2 className="nav-link bg-light text-center">
       Loged in as:
       {' '}
       {user.name}

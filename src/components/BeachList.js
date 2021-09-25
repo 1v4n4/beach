@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Carousel from 'react-bootstrap/Carousel';
 import { getList } from '../actions/listActions';
 import Filter from './Filter';
+import '../CSS/beachList.css';
 
 const BeachList = () => {
   const [filter, setFilter] = useState('All');
@@ -31,15 +33,41 @@ const BeachList = () => {
       }
       return (
         <div className="ing-btn-div">
-          {beaches.map((beach) => (
-            <div className="beach-card" key={beach.id}>
-              <Link to={{ pathname: `/beach/${beach.id}`, state: { beachid: `${beach.id}` } }}><h2>{beach.name}</h2></Link>
-              <h4>{beach.location}</h4>
-            </div>
-          ))}
-        </div>
+          <Carousel variant="dark">
+            {beaches.map((beach, index) => (
+              <Carousel.Item key={beach.id}>
+                <img
+                  className="d-block w-100"
+                  src={beach.photo1}
+                  alt={beach.name}
+                />
+                <Carousel.Caption>
+                  <Link className="decoration-none" to={{ pathname: `/beach/${beach.id}`, state: { beachid: `${beach.id}` } }}><h5>{beach.name}</h5></Link>
+                  <p>{beach.description}</p>
 
+                </Carousel.Caption>
+                {' '}
+                <p>
+                  {index + 1}
+                  /
+                  {' '}
+                  {beaches.length}
+                </p>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        </div>
       );
+
+      //       <div className="beach-card" key={beach.id}>
+      //         <Link to={{ pathname: `/beach/${beach.id}`,
+      // state: { beachid: `${beach.id}` } }}><h2>{beach.name}</h2></Link>
+      //         <h4>{beach.location}</h4>
+      //       </div>
+      //     ))}
+      //   </div>
+
+      // );
     }
     if (list.errorMSG !== '') {
       return <h1>{list.errorMSG}</h1>;
