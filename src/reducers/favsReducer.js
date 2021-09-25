@@ -27,7 +27,7 @@ const favsReducer = (state = initialState, action) => {
       };
     case FAV_DELETE_SUCCESS:
       return {
-        ...state, data: state.data.filter((item) => item !== action.payload), errorMSG: '',
+        ...state, data: state.data.filter((item) => item.id !== action.payload.id), errorMSG: '',
       };
     case FAV_DELETE_FAIL:
       return {

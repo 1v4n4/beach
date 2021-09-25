@@ -27,9 +27,9 @@ const postFav = (userid, beachid) => async (dispatch) => {
 
 const deleteFav = (id, userid, beachid) => async (dispatch) => {
   try {
-    console.log(id, userid, beachid);
+    console.log('indeletefav', id, userid, beachid);
     /* eslint-disable */
-    const data = {id: id, user_id: userid, beach_id:beachid};
+    const data = {id: id, user_id: userid, beach_id:parseInt(beachid, 10)};
     console.log('dataa', data);
     const url = 'https://obscure-ravine-72601.herokuapp.com/favs/' + id;
     const result = await axios.delete(url);

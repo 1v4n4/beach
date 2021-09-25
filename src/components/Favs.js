@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 // import { postFav, deleteFav } from '../actions/favsActions';
 import MkFav from './MkFav';
 import DelFav from './DelFav';
+import { setFavState } from '../helper';
 
 const Favs = ({ beachid }) => {
   // const dispatch = useDispatch();
@@ -11,6 +12,9 @@ const Favs = ({ beachid }) => {
   const favs = useSelector((state) => state.favs).data;
   console.log('infavs', favs);
   const userid = user.data.id;
+
+  const favState = setFavState(favs, userid, beachid);
+  console.log('favState', favState);
 
   const array = favs
     .filter((fav) => fav.user_id === userid && fav.beach_id === parseInt(beachid, 10));
@@ -34,8 +38,8 @@ const Favs = ({ beachid }) => {
 
   return (
     <div>
-      { !array.length && <MkFav userid={userid} beachid={beachid} /> }
-      { array.length && <DelFav id={id} userid={userid} beachid={beachid} /> }
+      { !favState && <MkFav userid={userid} beachid={beachid} /> }
+      { favState && <DelFav id={id} userid={userid} beachid={beachid} /> }
     </div>
   );
 };

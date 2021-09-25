@@ -13,6 +13,25 @@ const logged = () => {
   if (result) return true;
   return false;
 };
+const setFavState = (favs, userid, beachid) => {
+  const array = favs
+    .filter((fav) => fav.user_id === userid && fav.beach_id === beachid);
+  console.log('array', array);
+
+  console.log('in setsfavstate arr length', array.length);
+  if (array.length) {
+    return true;
+  }
+  return false;
+};
+const toggleFav = (favState) => {
+  if (favState) {
+    return false;
+  }
+  return true;
+};
 
 export
-{ msgs, logged };
+{
+  msgs, logged, toggleFav, setFavState,
+};

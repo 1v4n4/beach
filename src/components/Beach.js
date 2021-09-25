@@ -8,11 +8,14 @@ const Beach = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const { beachid } = location.state;
+  console.log('bb', typeof (beachid));
+  /* eslint-disable */
+  const b = parseInt(beachid);
+  console.log('b', typeof(b));
   const logged = useSelector((state) => state.user.logged);
 
   const FetchBeach = () => {
-    console.log('inb', beachid);
-    dispatch(getBeach(beachid));
+    dispatch(getBeach(b));
   };
 
   useEffect(() => {
@@ -21,9 +24,9 @@ const Beach = () => {
 
   return (
     <div>
-      <p>{beachid}</p>
+      <p>{b}</p>
       { logged
-      && <Favs beachid={beachid} />}
+      && <Favs beachid={b} />}
     </div>
   );
 };
