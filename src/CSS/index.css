@@ -30,3 +30,12 @@ input {
 .sub-btn {
   width: 60%;
 }
+
+.fav-btn {
+  border: none;
+}
+
+.carusel-photo {
+  max-height: 30vh;
+  object-fit: cover;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { AiFillStar } from 'react-icons/ai';
 import { deleteFav, getFavs } from '../actions/favsActions';
 
 const DelFav = ({ id, userid, beachid }) => {
@@ -11,7 +12,10 @@ const DelFav = ({ id, userid, beachid }) => {
     getFavs();
   };
   return (
-    <button type="button" onClick={handleClick}>Fav</button>
+    <button type="button" className="fav-btn bg-transparent" onClick={handleClick}>
+      <AiFillStar />
+      <span className="text-light">a</span>
+    </button>
   );
 };
 

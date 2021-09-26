@@ -6,6 +6,7 @@ import Home from './components/Home';
 import LogIn from './auth/LogIn';
 import SignUp from './auth/SignUp';
 import Header from './components/Header';
+import Favourites from './components/Favourites';
 import { getUser } from './localStorage';
 import { checkUser } from './actions/userActions';
 import { getFavs } from './actions/favsActions';
@@ -33,6 +34,7 @@ const Routes = () => {
         <Route path="/beach/:beach" component={Beach} />
         <Route path="/login" component={LogIn} />
         <Route path="/signup" component={SignUp} />
+        <Route path="/favourites" component={Favourites} />
       </Switch>
 
     </BrowserRouter>

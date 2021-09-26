@@ -12,7 +12,6 @@ import '../CSS/header.css';
 
 const Header = () => {
   const dispatch = useDispatch();
-
   const result = getUser() || {};
   const { id } = result;
   const FetchUser = () => {
@@ -45,7 +44,8 @@ const Header = () => {
             { isLogged
           && <Logged id={id} /> }
             { isLogged && <Button className="nav-link bg-light log" onClick={handleClick}>Log Out</Button> }
-
+            { isLogged
+          && <Link className="nav-link text-center bg-light log" to="/favourites">Favourites</Link> }
           </Nav>
         </Navbar.Collapse>
       </Container>
