@@ -36,9 +36,9 @@ const Beach = () => {
       const item = beach.data.beach;
       return (
         <div className="beach-div">
-          <h1 className="text-center">{item.name}</h1>
-          <h4 className="text-center my-3">{item.county}</h4>
-          <h5 className="text-center">{item.description}</h5>
+          <h1 className="text-center mx-3">{item.name}</h1>
+          <h4 className="text-center m-3">{item.county}</h4>
+          <h5 className="text-center mx-3">{item.description}</h5>
           <Carousel variant="dark" className="my-4">
             <Carousel.Item>
               <img
@@ -114,7 +114,7 @@ const Beach = () => {
       <div className="star-div text-center my-2">
         { logged
       && <Favs beachid={b} />}
-        {!logged && <p>Log in to add to favourites</p>}
+        {!logged && <p className="bg-secondary mx-5">Log in to add to favourites</p>}
       </div>
       {showData()}
     </>

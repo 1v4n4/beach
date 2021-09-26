@@ -15,7 +15,7 @@ const Favs = ({ beachid }) => {
   console.log('favState', favState);
 
   const array = favs
-    .filter((fav) => fav.user_id === userid && fav.beach_id === parseInt(beachid, 10));
+    .filter((fav) => fav.user_id === userid && fav.beach_id === beachid, 10);
   console.log('array', array);
 
   const { id } = array[0] || 0;

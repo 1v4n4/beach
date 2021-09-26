@@ -18,6 +18,7 @@ const Routes = () => {
     if (result.id) {
       dispatch(checkUser(result));
       const userid = result.id;
+      console.log('userid for dispatch getfavs', userid);
       dispatch(getFavs(userid));
     }
   };

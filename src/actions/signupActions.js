@@ -21,11 +21,11 @@ const getSignup = (name, email, password, passwordConfirmation) => async (dispat
       {
         withCredentials: true,
       });
+    setUser(result.data.user);
     dispatch({
       type: SIGNUP_SUCCESS,
       payload: result.data,
     });
-    setUser(result.data.user);
   } catch (error) {
     dispatch({
       type: SIGNUP_FAIL,

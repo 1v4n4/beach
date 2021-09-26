@@ -45,7 +45,7 @@ const Header = () => {
           && <Logged id={id} /> }
             { isLogged && <Button className="nav-link bg-light log" onClick={handleClick}>Log Out</Button> }
             { isLogged
-          && <Link className="nav-link text-center bg-light log" to="/favourites">Favourites</Link> }
+          && <Link className="nav-link text-center bg-light log" to={{ pathname: '/favourites', state: { userid: `${id}` } }}>Favourites</Link> }
           </Nav>
         </Navbar.Collapse>
       </Container>

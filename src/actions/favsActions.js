@@ -28,10 +28,10 @@ const postFav = (userid, beachid) => async (dispatch) => {
 const deleteFav = (id, userid, beachid) => async (dispatch) => {
   try {
     console.log('indeletefav', id, userid, beachid);
-    /* eslint-disable */
+    // eslint-disable-next-line
     const data = {id: id, user_id: userid, beach_id:parseInt(beachid, 10)};
     console.log('dataa', data);
-    const url = 'https://obscure-ravine-72601.herokuapp.com/favs/' + id;
+    const url = `https://obscure-ravine-72601.herokuapp.com/favs/${id}`;
     const result = await axios.delete(url);
     console.log('deletefav', result);
     dispatch({ type: FAV_DELETE_SUCCESS, payload: data });
@@ -43,10 +43,10 @@ const deleteFav = (id, userid, beachid) => async (dispatch) => {
 
 const getFavs = (userid) => async (dispatch) => {
   try {
-    const data = { user_id: userid };
-    const result = await axios.get(url, data);
-    console.log('favs', result.data);
-    dispatch({ type: FAVS_SUCCESS, payload: result.data });
+    const result = await axios.get(url);
+    const favs = result.data.filter((fav) => fav.user_id === userid);
+    console.log('favs', favs);
+    dispatch({ type: FAVS_SUCCESS, payload: favs });
   } catch (err) {
     console.error(err);
     dispatch({ type: FAVS_FAIL });
