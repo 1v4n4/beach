@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import MkFav from './MkFav';
 import DelFav from './DelFav';
+import { getFavs } from '../actions/favsActions';
 import { setFavState } from '../helper';
 
 const Favs = ({ beachid }) => {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  const favs = useSelector((state) => state.favs).data;
-  console.log('infavs', favs);
   const userid = user.data.id;
 
+  const FetchFavs = () => {
+    dispatch(getFavs(userid));
+  };
+
+  useEffect(() => {
+    FetchFavs();
+  }, []);
+
+  const favs = useSelector((state) => state.favs).data;
+  console.log('favs in Favs GOOD', favs);
   const favState = setFavState(favs, userid, beachid);
   console.log('favState', favState);
 
   const array = favs
-    .filter((fav) => fav.user_id === userid && fav.beach_id === beachid, 10);
+    .filter((fav) => fav.user_id === userid && fav.beach_id === beachid);
   console.log('array', array);
 
   const { id } = array[0] || 0;

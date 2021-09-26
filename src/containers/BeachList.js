@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
+import Container from 'react-bootstrap/Container';
 import { getList } from '../actions/listActions';
 import Filter from '../components/Filter';
-import '../CSS/beachList.css';
 
 const BeachList = () => {
   const [filter, setFilter] = useState('All');
@@ -32,7 +32,7 @@ const BeachList = () => {
         beaches = list.data.filter((beach) => beach.county === filter);
       }
       return (
-        <div className="ing-btn-div">
+        <Container>
           <Carousel variant="dark">
             {beaches.map((beach, index) => (
               <Carousel.Item key={beach.id}>
@@ -57,7 +57,7 @@ const BeachList = () => {
 
             ))}
           </Carousel>
-        </div>
+        </Container>
       );
     }
     if (list.errorMSG !== '') {

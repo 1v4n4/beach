@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setUser, getUser } from '../localStorage';
 import { logoutUser } from '../actions/logOutActions';
 import { checkUser } from '../actions/userActions';
+import { getFavs } from '../actions/favsActions';
 import Logged from './Logged';
 import '../CSS/header.css';
 
@@ -17,13 +18,14 @@ const Header = () => {
   const FetchUser = () => {
     if (result.id) {
       dispatch(checkUser(result));
+      dispatch(getFavs(id));
     }
   };
-
   useEffect(() => {
     FetchUser();
   }, []);
   const user = useSelector((state) => state.user);
+  const userid = user.data.id;
   const isLogged = user.logged;
 
   const handleClick = () => {
@@ -45,7 +47,7 @@ const Header = () => {
           && <Logged id={id} /> }
             { isLogged && <Button className="nav-link bg-light log" onClick={handleClick}>Log Out</Button> }
             { isLogged
-          && <Link className="nav-link text-center bg-light log" to={{ pathname: '/favourites', state: { userid: `${id}` } }}>Favourites</Link> }
+          && <Link className="nav-link text-center bg-light log" id="favs" to={{ pathname: '/favourites', state: { userid: `${userid}` } }}>Favourites</Link> }
           </Nav>
         </Navbar.Collapse>
       </Container>

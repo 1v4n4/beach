@@ -3,20 +3,22 @@ import { useSelector } from 'react-redux';
 import Carousel from 'react-bootstrap/Carousel';
 import { Link, useLocation } from 'react-router-dom';
 import { FaUmbrellaBeach } from 'react-icons/fa';
+// import { getFavs } from '../actions/favsActions';
 
 const Favourites = () => {
+  // const dispatch = useDispatch();
   const location = useLocation();
   const { id } = location.state;
   // eslint-disable-next-line
   const userid = parseInt(id);
   const all = useSelector((state) => state.list).data;
+
   const favs = useSelector((state) => state.favs).data;
+  console.log('favourites', favs);
   const beachids = favs.map((fav) => fav.beach_id);
-  console.log('badis', beachids);
-  console.log('huuu', favs);
-  console.log('all', all);
-  const favourites = all.filter((favourite) => beachids.includes(favourite.id));
-  console.log('inurites', favourites);
+  console.log('bachids', beachids);
+  const favourites = all.filter((fav) => beachids.includes(fav.id));
+  console.log('ites', favourites);
   return (
     <div className="favourites-div">
       <h1 className="text-center my-3">

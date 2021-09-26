@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Carousel from 'react-bootstrap/Carousel';
+import Container from 'react-bootstrap/Container';
 import { useLocation } from 'react-router-dom';
 import '../CSS/beach.css';
 import { getBeach } from '../actions/beachActions';
@@ -35,7 +36,7 @@ const Beach = () => {
     if (beach.data.beach) {
       const item = beach.data.beach;
       return (
-        <div className="beach-div">
+        <Container>
           <h1 className="text-center mx-3">{item.name}</h1>
           <h4 className="text-center m-3">{item.county}</h4>
           <h5 className="text-center mx-3">{item.description}</h5>
@@ -100,7 +101,7 @@ const Beach = () => {
 
             </ListGroup>
           </div>
-        </div>
+        </Container>
       );
     }
     if (beach.errorMSG !== '') {

@@ -4,3 +4,14 @@
   border:none;
   padding: 0;
 }
+
+@media (min-width: 1024px) {
+  .loged {
+    margin: 0.1rem 3rem 0 2rem;
+    font-size: 1.5rem;
+  }
+
+  #favs {
+    margin: 0.3rem 2rem 0 2rem;
+  }
+}
