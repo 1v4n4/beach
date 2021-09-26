@@ -1,6 +1,6 @@
 import axios from 'axios';
-// import { useHistory } from 'react-router-dom';
 import { setUser } from '../localStorage';
+import { msgs } from '../helper';
 
 const LOGIN_LOADING = 'LOGIN LOADING';
 const LOGIN_FAIL = 'LOGIN FAIL';
@@ -18,12 +18,17 @@ const getLogin = (email, password) => async (dispatch) => {
       {
         withCredentials: true,
       });
-    setUser(result.data.user);
-    console.log(result.data);
-    dispatch({
-      type: LOGIN_SUCCESS,
-      payload: result.data,
-    });
+    console.log('res', result);
+    if (result.data.status === 401) {
+      msgs('Wrong username of password. Please try again');
+    } else {
+      setUser(result.data.user);
+      console.log(result.data);
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: result.data,
+      });
+    }
   } catch (error) {
     dispatch({
       type: LOGIN_FAIL,

@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { getLogin } from '../actions/loginActions';
 
 const LogIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleSubmit = (event) => {
     console.log('onsubmit');
     console.log(email, password);
     dispatch(getLogin(email, password));
-    history.push('/');
+    // history.push('/');
     event.preventDefault();
   };
 
   return (
     <div>
+      <div id="forAlert" className="text-center text-danger fs-5 mt-3" />
       <form className="d-flex flex-column mt-5">
         <input
           className="mx-auto my-3 ps-2"

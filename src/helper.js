@@ -3,7 +3,7 @@ const msgs = (msg) => {
   msgDiv.innerHTML = `<p className="msgs">${msg}</p>`;
   setTimeout(() => {
     msgDiv.innerHTML = '';
-  }, 1000);
+  }, 2000);
 };
 
 const setFavState = (favs, userid, beachid) => {

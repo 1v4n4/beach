@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { getSignup } from '../actions/signupActions';
 import { msgs } from '../helper';
 
@@ -11,7 +11,7 @@ const SignUp = () => {
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleClick = (event) => {
     if (name === '' || email === '' || password === '' || passwordConfirmation === '') {
@@ -23,13 +23,13 @@ const SignUp = () => {
     } else {
       console.log(name, email, password, passwordConfirmation);
       dispatch(getSignup(name, email, password, passwordConfirmation));
-      history.push('/');
+      // history.push('/');
       event.preventDefault();
     }
   };
   return (
     <div>
-      <div id="forAlert" className="alert" />
+      <div id="forAlert" className="text-center text-danger fs-5 mt-3" />
       <div />
       <form className="d-flex flex-column mt-5">
 

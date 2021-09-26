@@ -21,6 +21,7 @@ const getSignup = (name, email, password, passwordConfirmation) => async (dispat
       {
         withCredentials: true,
       });
+    console.log('ooo', result);
     setUser(result.data.user);
     dispatch({
       type: SIGNUP_SUCCESS,
