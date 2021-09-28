@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 import MkFav from './MkFav';
 import DelFav from './DelFav';
 import { getFavs } from '../actions/favsActions';
+import { getUser } from '../localStorage';
 import { setFavState } from '../helper';
 
 const Favs = ({ beachid }) => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
-  const userid = user.data.id;
+  const user = getUser();
+  const userid = user.id;
 
   const FetchFavs = () => {
     dispatch(getFavs(userid));
@@ -33,7 +34,7 @@ const Favs = ({ beachid }) => {
 
   return (
     <div>
-      { !favState && <MkFav userid={userid} beachid={beachid} /> }
+      { !favState && <MkFav beachid={beachid} /> }
       { favState && <DelFav id={id} userid={userid} beachid={beachid} /> }
     </div>
   );

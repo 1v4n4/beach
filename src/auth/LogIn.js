@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
 import { getLogin } from '../actions/loginActions';
+import { getUser } from '../localStorage';
+import { getFavs } from '../actions/favsActions';
+import { getList } from '../actions/listActions';
 
 const LogIn = () => {
   const [email, setEmail] = useState('');
@@ -13,6 +16,14 @@ const LogIn = () => {
     console.log('onsubmit');
     console.log(email, password);
     dispatch(getLogin(email, password));
+    if (getUser()) {
+      setTimeout(() => {
+        const user = getUser();
+        const userid = user.id;
+        dispatch(getFavs(userid));
+        dispatch(getList());
+      }, 1000);
+    }
     // history.push('/');
     event.preventDefault();
   };
@@ -38,7 +49,7 @@ const LogIn = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <br />
-        <button type="submit" className="mx-auto btn-secondary sub-btn" onClick={handleSubmit}> Submit </button>
+        <button type="submit" className="mx-auto btn-secondary sub-btn" onClick={handleSubmit}>Log in </button>
       </form>
     </div>
   );

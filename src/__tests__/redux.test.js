@@ -13,7 +13,7 @@ describe('userReducer', () => {
   it('returns the initial state', () => {
     expect(userReducer(undefined, {})).toEqual({
       loading: false,
-      data: null,
+      data: {},
       errorMSG: '',
       logged: false,
     });

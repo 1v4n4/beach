@@ -12,12 +12,11 @@ const getLogin = (email, password) => async (dispatch) => {
       type: LOGIN_LOADING,
     });
     const data = { user: { email, password } };
-    const url = 'https://obscure-ravine-72601.herokuapp.com/sessions';
+    const url = 'https://calbeach.herokuapp.com/sessions';
 
-    const result = await axios.post(url, data,
-      {
-        withCredentials: true,
-      });
+    const result = await axios.post(url, data, {
+      withCredentials: false,
+    });
     console.log('res', result);
     if (result.data.status === 401) {
       msgs('Wrong username of password. Please try again');

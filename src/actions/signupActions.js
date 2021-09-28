@@ -15,12 +15,9 @@ const getSignup = (name, email, password, passwordConfirmation) => async (dispat
         name, email, password, passwordConfirmation,
       },
     };
-    const url = 'https://obscure-ravine-72601.herokuapp.com/registrations';
+    const url = 'https://calbeach.herokuapp.com/registrations';
 
-    const result = await axios.post(url, data,
-      {
-        withCredentials: true,
-      });
+    const result = await axios.post(url, data);
     console.log('ooo', result);
     setUser(result.data.user);
     dispatch({

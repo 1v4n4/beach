@@ -65,7 +65,7 @@ const SignUp = () => {
           placeholder="Confirm password"
           onChange={(e) => setPasswordConfirmation(e.target.value)}
         />
-        <button type="button" className="mx-auto btn-secondary sub-btn" onClick={handleClick}> Submit </button>
+        <button type="button" className="mx-auto btn-secondary sub-btn" onClick={handleClick}>Log in</button>
 
       </form>
     </div>

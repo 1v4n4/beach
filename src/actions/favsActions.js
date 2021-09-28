@@ -8,7 +8,7 @@ const FAVS_FAIL = 'FAVS FAIL';
 const FAV_DELETE_SUCCESS = 'FAVS DELETE SUCCESS';
 const FAV_DELETE_FAIL = 'FAVS DELETE FAIL';
 
-const url = 'https://obscure-ravine-72601.herokuapp.com/favs/';
+const url = 'https://calbeach.herokuapp.com/favs/';
 
 const postFav = (userid, beachid) => async (dispatch) => {
   try {
@@ -28,10 +28,9 @@ const postFav = (userid, beachid) => async (dispatch) => {
 const deleteFav = (id, userid, beachid) => async (dispatch) => {
   try {
     console.log('indeletefav', id, userid, beachid);
-    // eslint-disable-next-line
-    const data = {id: id, user_id: userid, beach_id:parseInt(beachid, 10)};
+    const data = { id, user_id: userid, beach_id: beachid };
     console.log('dataa', data);
-    const url = `https://obscure-ravine-72601.herokuapp.com/favs/${id}`;
+    const url = `https://calbeach.herokuapp.com/favs/${id}`;
     const result = await axios.delete(url);
     console.log('deletefav', result);
     dispatch({ type: FAV_DELETE_SUCCESS, payload: data });

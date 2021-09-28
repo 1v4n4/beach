@@ -9,7 +9,7 @@ const getBeach = (beachid) => async (dispatch) => {
   try {
     dispatch({ type: BEACH_LOADING });
     /* eslint-disable */
-    const url = 'https://obscure-ravine-72601.herokuapp.com/beaches/' + beachid;
+    const url = 'https://calbeach.herokuapp.com/beaches/' + beachid;
     const result = await axios.get(url);
     dispatch({
       type: BEACH_SUCCESS,

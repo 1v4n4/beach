@@ -31,11 +31,11 @@ const Routes = () => {
     <BrowserRouter>
       <Header />
       <Switch>
-        <Route exact path="/beach" component={Home} />
+        <Route exact path="/" component={Home} />
         <Route path="/beach/:beach" component={Beach} />
-        <Route path="/beach/login" component={LogIn} />
-        <Route path="/beach/signup" component={SignUp} />
-        <Route path="/beach/favourites" component={Favourites} />
+        <Route path="/login" component={LogIn} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/favourites" component={Favourites} />
       </Switch>
 
     </BrowserRouter>
