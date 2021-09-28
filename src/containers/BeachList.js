@@ -12,7 +12,6 @@ const BeachList = () => {
 
   const list = useSelector((state) => state.list);
 
-  console.log('list', list);
   const FetchBeach = () => {
     dispatch(getList());
   };

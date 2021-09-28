@@ -11,7 +11,6 @@ const MkFav = ({ beachid }) => {
   const userid = user.id;
   const dispatch = useDispatch();
   const handleClick = () => {
-    console.log('eeeeej');
     dispatch(postFav(userid, beachid));
     toggleFav();
   };

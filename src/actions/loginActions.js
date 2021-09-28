@@ -17,12 +17,10 @@ const getLogin = (email, password) => async (dispatch) => {
     const result = await axios.post(url, data, {
       withCredentials: false,
     });
-    console.log('res', result);
     if (result.data.status === 401) {
       msgs('Wrong username of password. Please try again');
     } else {
       setUser(result.data.user);
-      console.log(result.data);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: result.data,

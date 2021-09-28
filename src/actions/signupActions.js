@@ -18,7 +18,6 @@ const getSignup = (name, email, password, passwordConfirmation) => async (dispat
     const url = 'https://calbeach.herokuapp.com/registrations';
 
     const result = await axios.post(url, data);
-    console.log('ooo', result);
     setUser(result.data.user);
     dispatch({
       type: SIGNUP_SUCCESS,

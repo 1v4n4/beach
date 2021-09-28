@@ -3,10 +3,8 @@ import { useSelector } from 'react-redux';
 import Carousel from 'react-bootstrap/Carousel';
 import { Link, useLocation } from 'react-router-dom';
 import { FaUmbrellaBeach } from 'react-icons/fa';
-// import { getFavs } from '../actions/favsActions';
 
 const Favorites = () => {
-  // const dispatch = useDispatch();
   const location = useLocation();
   const { id } = location.state;
   // eslint-disable-next-line
@@ -14,18 +12,14 @@ const Favorites = () => {
   const all = useSelector((state) => state.list).data;
 
   const favs = useSelector((state) => state.favs).data;
-  console.log('favorites', favs);
   const beachids = favs.map((fav) => fav.beach_id);
-  console.log('bachids', beachids);
   const favorites = all.filter((fav) => beachids.includes(fav.id));
-  console.log('ites', favorites);
   return (
     <div className="favorites-div">
       <h1 className="text-center my-3">
         <FaUmbrellaBeach className="pb-1 pe-1" />
         Your favorite places
       </h1>
-
       <div className="ing-btn-div">
         <Carousel variant="dark">
           {favorites.map((favorite, index) => (
@@ -44,15 +38,11 @@ const Favorites = () => {
                   {' '}
                   {favorites.length}
                 </p>
-
               </Carousel.Caption>
-
             </Carousel.Item>
-
           ))}
         </Carousel>
       </div>
-
     </div>
   );
 };

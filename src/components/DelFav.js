@@ -6,7 +6,6 @@ import { deleteFav, getFavs } from '../actions/favsActions';
 
 const DelFav = ({ id, userid, beachid }) => {
   const dispatch = useDispatch();
-  console.log('in del', id, userid, beachid);
   const handleClick = () => {
     dispatch(deleteFav(id, userid, beachid));
     getFavs();

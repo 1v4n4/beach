@@ -9,9 +9,6 @@ const msgs = (msg) => {
 const setFavState = (favs, userid, beachid) => {
   const array = favs
     .filter((fav) => fav.user_id === userid && fav.beach_id === beachid);
-  console.log('array', array);
-
-  console.log('in setsfavstate arr length', array.length);
   if (array.length) {
     return true;
   }

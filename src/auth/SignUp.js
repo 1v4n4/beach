@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { useHistory } from 'react-router-dom';
 import { getSignup } from '../actions/signupActions';
 import { msgs } from '../helper';
 
@@ -11,19 +10,15 @@ const SignUp = () => {
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
   const dispatch = useDispatch();
-  // const history = useHistory();
 
   const handleClick = (event) => {
     if (name === '' || email === '' || password === '' || passwordConfirmation === '') {
-      console.log('empty');
       msgs('All data must be filled in. Please try again');
     } else
     if (password !== passwordConfirmation) {
       msgs('Passwords do not match. Please try again');
     } else {
-      console.log(name, email, password, passwordConfirmation);
       dispatch(getSignup(name, email, password, passwordConfirmation));
-      // history.push('/');
       event.preventDefault();
     }
   };

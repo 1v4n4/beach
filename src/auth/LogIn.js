@@ -13,8 +13,6 @@ const LogIn = () => {
   // const history = useHistory();
 
   const handleSubmit = (event) => {
-    console.log('onsubmit');
-    console.log(email, password);
     dispatch(getLogin(email, password));
     if (getUser()) {
       setTimeout(() => {

@@ -12,10 +12,8 @@ const Beach = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const { beachid } = location.state;
-  console.log('bb', typeof (beachid));
-  /* eslint-disable */
+  // eslint-disable-next-line
   const b = parseInt(beachid);
-  console.log('b', typeof (b));
   const logged = useSelector((state) => state.user.logged);
 
   const FetchBeach = () => {
@@ -28,7 +26,6 @@ const Beach = () => {
 
   const showData = () => {
     const beach = useSelector((state) => state.beach);
-    console.log('ojojojjjjjj', beach);
     if (beach.loading) {
       return <h1 className="nav-link bg-light text-center text-dark mt-5">Loading</h1>;
     }
@@ -47,7 +44,6 @@ const Beach = () => {
                 src={item.photo1}
                 alt="First slide"
               />
-
             </Carousel.Item>
             <Carousel.Item>
               <img
@@ -55,7 +51,6 @@ const Beach = () => {
                 src={item.photo2}
                 alt="Second slide"
               />
-
             </Carousel.Item>
             <Carousel.Item>
               <img
@@ -63,7 +58,6 @@ const Beach = () => {
                 src={item.photo3}
                 alt="Third slide"
               />
-
             </Carousel.Item>
             <Carousel.Item>
               <img
@@ -71,34 +65,27 @@ const Beach = () => {
                 src={item.photo4}
                 alt="Fourth slide"
               />
-
             </Carousel.Item>
           </Carousel>
 
           <div className="d-flex justify-content-around m-3">
-
             <ListGroup as="ul" className="list1">
-
               <ListGroup.Item as="li" className="bg-secondary first-line text-center fs-6 pt-1" active>
                 DIRECTIONS
               </ListGroup.Item>
-
               <ListGroup.Item as="li" className="p-3 text-center">{item.location}</ListGroup.Item>
               <ListGroup.Item as="li" className="bg-secondary first-line text-center fs-6 pt-1" active>
                 FACILITIES
               </ListGroup.Item>
-
             </ListGroup>
           </div>
 
           <div className="d-flex justify-content-around ms-1">
 
             <ListGroup as="ul" horizontal className="pb-5">
-
               {item.campground === 'Yes' && <ListGroup.Item as="li" className="p-0 me-2">Campground</ListGroup.Item>}
               {item.parking === 'Yes' && <ListGroup.Item as="li" className="p-0 me-2">Parking</ListGroup.Item>}
               {item.restrooms === 'Yes' && <ListGroup.Item as="li" className="p-0">Restrooms</ListGroup.Item>}
-
             </ListGroup>
           </div>
         </Container>

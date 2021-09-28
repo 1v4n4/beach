@@ -21,16 +21,12 @@ const Favs = ({ beachid }) => {
   }, []);
 
   const favs = useSelector((state) => state.favs).data;
-  console.log('favs in Favs GOOD', favs);
   const favState = setFavState(favs, userid, beachid);
-  console.log('favState', favState);
 
   const array = favs
     .filter((fav) => fav.user_id === userid && fav.beach_id === beachid);
-  console.log('array', array);
 
   const { id } = array[0] || 0;
-  console.log('infavs', id, userid, beachid);
 
   return (
     <div>

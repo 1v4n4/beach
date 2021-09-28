@@ -17,7 +17,7 @@ This project also includes a backend, an RoR API.
 - cd into the project
 - Run `npm install` to install dependencies
 - In the terminal `npm start` to open up the live server
--Point your browser to http://localhost:3000/ to load the app
+- Point your browser to http://localhost:3000/ to load the app
 
 ## Testing
 To run tests write npm test in the terminal
@@ -37,6 +37,7 @@ Contributions, issues, and feature requests are welcome!
 Feel free to check the [issues page](https://github.com/1v4n4/beach.git/issues).
 
 ## License
+
 MIT
 
 ## Show your support
