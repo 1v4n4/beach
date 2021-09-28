@@ -13,7 +13,7 @@ const Home = () => (
     <div className="d-flex justify-content-center">
       <p className="down">
         Made by
-        <a className="down-link mx-1" href="https://github.com/1v4n4">1v4n4</a>
+        <a className="downlink mx-1" href="https://github.com/1v4n4">1v4n4</a>
         © 2021
       </p>
     </div>

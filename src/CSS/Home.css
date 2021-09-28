@@ -5,10 +5,10 @@
   color: rgb(124, 121, 121);
 }
 
-.down-link {
+.down a {
   color: rgb(124, 121, 121);
 }
 
-down-link:hover {
+.down a:hover {
   color: #333;
 }
