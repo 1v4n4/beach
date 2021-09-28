@@ -36,7 +36,7 @@ const Header = () => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand to="#home"><Link className="text-dark fs-3" to="/">Home</Link></Navbar.Brand>
+        <Navbar.Brand to="#home"><Link className="text-dark fs-3" to="/beach">Home</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -47,7 +47,7 @@ const Header = () => {
           && <Logged id={id} /> }
             { isLogged && <Button className="nav-link bg-light log" onClick={handleClick}>Log Out</Button> }
             { isLogged
-          && <Link className="nav-link text-center bg-light log" id="favs" to={{ pathname: '/favourites', state: { userid: `${userid}` } }}>Favourites</Link> }
+          && <Link className="nav-link text-center bg-light log" id="favs" to={{ pathname: '/favorites', state: { userid: `${userid}` } }}>Favorites</Link> }
           </Nav>
         </Navbar.Collapse>
       </Container>

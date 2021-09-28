@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { FaUmbrellaBeach } from 'react-icons/fa';
 // import { getFavs } from '../actions/favsActions';
 
-const Favourites = () => {
+const Favorites = () => {
   // const dispatch = useDispatch();
   const location = useLocation();
   const { id } = location.state;
@@ -14,35 +14,35 @@ const Favourites = () => {
   const all = useSelector((state) => state.list).data;
 
   const favs = useSelector((state) => state.favs).data;
-  console.log('favourites', favs);
+  console.log('favorites', favs);
   const beachids = favs.map((fav) => fav.beach_id);
   console.log('bachids', beachids);
-  const favourites = all.filter((fav) => beachids.includes(fav.id));
-  console.log('ites', favourites);
+  const favorites = all.filter((fav) => beachids.includes(fav.id));
+  console.log('ites', favorites);
   return (
-    <div className="favourites-div">
+    <div className="favorites-div">
       <h1 className="text-center my-3">
         <FaUmbrellaBeach className="pb-1 pe-1" />
-        Your favourite places
+        Your favorite places
       </h1>
 
       <div className="ing-btn-div">
         <Carousel variant="dark">
-          {favourites.map((favourite, index) => (
-            <Carousel.Item key={favourite.id}>
+          {favorites.map((favorite, index) => (
+            <Carousel.Item key={favorite.id}>
               <img
                 className="d-block w-100 carusel-photo"
-                src={favourite.photo1}
-                alt={favourite.name}
+                src={favorite.photo1}
+                alt={favorite.name}
               />
               <Carousel.Caption>
-                <Link to={{ pathname: `/beach/${favourite.id}`, state: { beachid: `${favourite.id}` } }}><h2>{favourite.name}</h2></Link>
-                <p className="fs-5">{favourite.description}</p>
+                <Link to={{ pathname: `/beach/${favorite.id}`, state: { beachid: `${favorite.id}` } }}><h2>{favorite.name}</h2></Link>
+                <p className="fs-5">{favorite.description}</p>
                 <p className="fs-4">
                   {index + 1}
                   /
                   {' '}
-                  {favourites.length}
+                  {favorites.length}
                 </p>
 
               </Carousel.Caption>
@@ -57,4 +57,4 @@ const Favourites = () => {
   );
 };
 
-export default Favourites;
+export default Favorites;
