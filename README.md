@@ -6,6 +6,7 @@ This project also includes a backend, an RoR API.
 
 ### [Live demo](https://1v4n4.github.io/beach/)
 ### [Link to backend API](https://calbeach.herokuapp.com)
+### [Link to backend repo](https://github.com/1v4n4/back)
 
 ## Built with
 - React
