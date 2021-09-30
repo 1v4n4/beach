@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { getLogin } from '../actions/loginActions';
 import { getUser } from '../localStorage';
 import { getFavs } from '../actions/favsActions';
@@ -10,10 +10,10 @@ const LogIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  // const history = useHistory();
+  const history = useHistory();
 
   const handleSubmit = (event) => {
-    dispatch(getLogin(email, password));
+    dispatch(getLogin(email, password, history));
     if (getUser()) {
       setTimeout(() => {
         const user = getUser();
@@ -22,7 +22,6 @@ const LogIn = () => {
         dispatch(getList());
       }, 1000);
     }
-    // history.push('/');
     event.preventDefault();
   };
 

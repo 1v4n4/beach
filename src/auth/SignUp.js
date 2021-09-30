@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getSignup } from '../actions/signupActions';
 import { msgs } from '../helper';
@@ -9,6 +10,7 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const handleClick = (event) => {
@@ -18,7 +20,7 @@ const SignUp = () => {
     if (password !== passwordConfirmation) {
       msgs('Passwords do not match. Please try again');
     } else {
-      dispatch(getSignup(name, email, password, passwordConfirmation));
+      dispatch(getSignup(name, email, password, passwordConfirmation, history));
       event.preventDefault();
     }
   };
