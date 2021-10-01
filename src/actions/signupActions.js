@@ -20,12 +20,16 @@ const getSignup = (name, email, password, passwordConfirmation, history) => asyn
 
     const result = await axios.post(url, data);
     console.log(result);
-    setUser(result.data.user);
-    history.push('/beach');
-    dispatch({
-      type: SIGNUP_SUCCESS,
-      payload: result.data,
-    });
+    if (result.data.message) {
+      msgs(result.data.message);
+    } else {
+      setUser(result.data.user);
+      history.push('/beach');
+      dispatch({
+        type: SIGNUP_SUCCESS,
+        payload: result.data,
+      });
+    }
   } catch (error) {
     msgs('Something went wrong. Please try again');
     dispatch({
