@@ -1,6 +1,4 @@
 import axios from 'axios';
-// import { browserHistory } from 'react-router-dom';
-// import { useHistory } from 'react-router-dom';
 import { setUser } from '../localStorage';
 import { msgs } from '../helper';
 
@@ -9,7 +7,6 @@ const LOGIN_FAIL = 'LOGIN FAIL';
 const LOGIN_SUCCESS = 'LOGIN SUCCESS';
 
 const getLogin = (email, password, history) => async (dispatch) => {
-  // const history = useHistory();
   try {
     dispatch({
       type: LOGIN_LOADING,

@@ -1,4 +1,3 @@
-// import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 
 const BEACH_FAIL = 'BEACH FAIL';

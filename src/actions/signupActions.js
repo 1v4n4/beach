@@ -19,7 +19,6 @@ const getSignup = (name, email, password, passwordConfirmation, history) => asyn
     const url = 'https://calbeach.herokuapp.com/registrations';
 
     const result = await axios.post(url, data);
-    console.log(result);
     if (result.data.message) {
       msgs(result.data.message);
     } else {
