@@ -1,6 +1,6 @@
 # Cal Beach
 
-The mobile app is a presentation of beaches in California with includes data like the name, location, description, available facilities, etc... It allows users to make an account and when logged in create a list of their favorite places. There are three main pages, a homepage with a list of places, a beach details page, and a favorites page. 
+The mobile app is a presentation of beaches in California with data like the name, location, description, available facilities, etc... It allows users to make an account and when logged in create a list of their favorite places. There are three main pages, a homepage with a list of places, a beach details page, and a favorites page. 
 This project also includes a backend, an RoR API.
 
 
