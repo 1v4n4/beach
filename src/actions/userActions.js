@@ -1,5 +1,4 @@
 const USER_PRESENT = 'USER_PRESENT';
-// const USER_UNKNOWN = "USER_UNKNOWN";
 
 const checkUser = (result) => (dispatch) => {
   dispatch({

@@ -1,24 +1,27 @@
-import axios from 'axios';
-import { getUser } from './localStorage';
-
-const postFav = async (url, data) => {
-  const result = await axios.post(url, data);
-  return result.data;
-};
-
 const msgs = (msg) => {
   const msgDiv = document.getElementById('forAlert');
   msgDiv.innerHTML = `<p className="msgs">${msg}</p>`;
   setTimeout(() => {
     msgDiv.innerHTML = '';
-  }, 1000);
+  }, 2000);
 };
 
-const logged = () => {
-  const result = getUser();
-  if (result) return true;
+const setFavState = (favs, userid, beachid) => {
+  const array = favs
+    .filter((fav) => fav.user_id === userid && fav.beach_id === beachid);
+  if (array.length) {
+    return true;
+  }
   return false;
+};
+const toggleFav = (favState) => {
+  if (favState) {
+    return false;
+  }
+  return true;
 };
 
 export
-{ msgs, logged, postFav };
+{
+  msgs, toggleFav, setFavState,
+};

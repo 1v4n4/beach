@@ -1,28 +1,32 @@
 import axios from 'axios';
-// import { useHistory } from 'react-router-dom';
 import { setUser } from '../localStorage';
+import { msgs } from '../helper';
 
 const LOGIN_LOADING = 'LOGIN LOADING';
 const LOGIN_FAIL = 'LOGIN FAIL';
 const LOGIN_SUCCESS = 'LOGIN SUCCESS';
 
-const getLogin = (email, password) => async (dispatch) => {
+const getLogin = (email, password, history) => async (dispatch) => {
   try {
     dispatch({
       type: LOGIN_LOADING,
     });
     const data = { user: { email, password } };
-    const url = 'https://obscure-ravine-72601.herokuapp.com/sessions';
+    const url = 'https://calbeach.herokuapp.com/sessions';
 
-    const result = await axios.post(url, data,
-      {
-        withCredentials: true,
-      });
-    setUser(result.data.user);
-    dispatch({
-      type: LOGIN_SUCCESS,
-      payload: result.data,
+    const result = await axios.post(url, data, {
+      withCredentials: false,
     });
+    if (result.data.status === 401) {
+      msgs('Wrong username of password. Please try again');
+    } else {
+      setUser(result.data.user);
+      history.push('/beach');
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: result.data,
+      });
+    }
   } catch (error) {
     dispatch({
       type: LOGIN_FAIL,
