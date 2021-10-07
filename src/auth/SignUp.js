@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { getSignup } from '../actions/signupActions';
 import { msgs } from '../helper';
 
@@ -8,35 +9,29 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
-  // const [isEmpty, setIsEmpty] = useState(false);
-  // const [isValid, setIsValid] = useState(true);
 
-  const user = useSelector((state) => state.user);
-  console.log('useer', user);
+  const history = useHistory();
   const dispatch = useDispatch();
-  console.log(dispatch);
 
-  const handleClick = () => {
+  const handleClick = (event) => {
     if (name === '' || email === '' || password === '' || passwordConfirmation === '') {
-      console.log('empty');
       msgs('All data must be filled in. Please try again');
     } else
     if (password !== passwordConfirmation) {
       msgs('Passwords do not match. Please try again');
     } else {
-      dispatch(getSignup(name, email, password, passwordConfirmation));
+      dispatch(getSignup(name, email, password, passwordConfirmation, history));
+      event.preventDefault();
     }
   };
   return (
     <div>
-      <div id="forAlert" className="alert" />
-      <form className="sign-up-form">
-        <p>{name}</p>
-        <p>{email}</p>
-        <p>{password}</p>
-        <p>{passwordConfirmation}</p>
-        <div id="forAlert" />
+      <div id="forAlert" className="text-center text-danger fs-5 mt-3" />
+      <div />
+      <form className="d-flex flex-column mt-5">
+
         <input
+          className="mx-auto mb-3 ps-2"
           type="text"
           value={name}
           name="sign-up-name"
@@ -44,6 +39,7 @@ const SignUp = () => {
           onChange={(e) => setName(e.target.value)}
         />
         <input
+          className="mx-auto mb-3 ps-2"
           type="email"
           value={email}
           name="sign-up-mail"
@@ -51,6 +47,7 @@ const SignUp = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          className="mx-auto mb-3 ps-2"
           type="password"
           value={password}
           name="sign-up-mail"
@@ -58,13 +55,14 @@ const SignUp = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <input
+          className="mx-auto mb-3 ps-2"
           type="password"
           value={passwordConfirmation}
           name="sign-up-mail"
           placeholder="Confirm password"
           onChange={(e) => setPasswordConfirmation(e.target.value)}
         />
-        <button type="button" onClick={handleClick}> Submit </button>
+        <button type="button" className="mx-auto btn-secondary sub-btn" onClick={handleClick}>Log in</button>
 
       </form>
     </div>
