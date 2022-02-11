@@ -27,7 +27,7 @@ To run tests write npm test in the terminal
 👤 **Ivana Novaković-Leković**
 
 - GitHub: [@githubhandle](https://github.com/1v4n4)
-- Twitter: [@twitterhandle](https://twitter.com/codeIv1)
+- Twitter: [@twitterhandle](https://twitter.com/_1v4n4)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/1v4n4/)
 
 
